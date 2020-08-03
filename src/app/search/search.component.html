@@ -1,6 +1,6 @@
 <div>
     <input type="text" [(ngModel)]="term" />
-    <div *ngFor = "let item of items | filter:term"> {{item.name}}</div>
+    <div *ngFor = "let item of items | filter:term">{{item.name}}</div>
     <div *ngIf="(items | filter:term).length < 1">Not Found</div>
     
 </div>

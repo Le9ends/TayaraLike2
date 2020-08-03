@@ -14,9 +14,10 @@
                   <input
                     type="email"
                     id="inputEmail"
+                    name="email"
                     class="form-control"
+                    [(ngModel)]="credentials.email"
                     required
-                    autofocus
                   />
                 </div>
 
@@ -24,8 +25,10 @@
                   Password
                   <input
                     type="password"
+                    name="password"
                     id="inputPassword"
                     class="form-control"
+                    [(ngModel)]="credentials.password"
                     required
                   />
                 </div>
@@ -43,12 +46,12 @@
                 <button
                   class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                   type="submit"
-                  routerLink="/home"
+                  routerLink="/profile"
                 >
                   Sign in
                 </button>
                 <div class="text-center">
-                  <a class="small" href="#">Forgot password?</a>
+                  <a class="small" routerLink="/home">Forgot password?</a>
                 </div>
               </form>
             </div>
