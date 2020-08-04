@@ -15,7 +15,8 @@ export class LoginComponent {
     first_name:'',
     last_name:'',
     email:'',
-    password:''
+    password:'',
+    cpassword:''
   }
   constructor(private auth:AuthenticationService, private router: Router){ }
   login(){
