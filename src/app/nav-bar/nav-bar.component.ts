@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {AuthenticationService} from '../authentication.service'
 
 @Component({
@@ -9,7 +9,7 @@ import {AuthenticationService} from '../authentication.service'
 export class NavBarComponent {
 
   constructor(public auth:AuthenticationService){ }
-
+  
  
 
 }

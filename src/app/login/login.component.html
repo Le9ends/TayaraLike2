@@ -7,13 +7,12 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
               <h1 class="login-heading mb-4">Welcome back!</h1>
-              <form>
+              <form (submit) ="login()">
                 <div class="form-label-group">
                   Email address
                   <br />
                   <input
                     type="email"
-                    id="inputEmail"
                     name="email"
                     class="form-control"
                     [(ngModel)]="credentials.email"
@@ -26,7 +25,6 @@
                   <input
                     type="password"
                     name="password"
-                    id="inputPassword"
                     class="form-control"
                     [(ngModel)]="credentials.password"
                     required
@@ -46,13 +44,10 @@
                 <button
                   class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                   type="submit"
-                  routerLink="/home"
+                  routerLink="/profile"
                 >
                   Sign in
                 </button>
-                <div class="text-center">
-                  <a class="small" routerLink="/profile">Forgot password?</a>
-                </div>
               </form>
             </div>
           </div>

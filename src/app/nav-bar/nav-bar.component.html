@@ -32,8 +32,8 @@
           >SignUp</a
         >
       </li>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/profile"
+      <li *ngIf="auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link"  routerLink="/profile"
           >{{auth.getUserDetails()?.first_name}}</a
         >
       </li>
@@ -98,8 +98,8 @@
           <a class="dropdown-item" routerLinkActive="active" [routerLink]="['categories']">Others</a>
         </div>
       </li>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/login" (click)="auth.logout()"
+      <li *ngIf="auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link"  routerLink="/login" (click)="auth.logout()"
           >Logout</a
         >
       </li>
@@ -111,7 +111,8 @@
         placeholder="Search"
         aria-label="Search"
       />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['search']">
         Search
       </button>
     </form>

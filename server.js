@@ -15,11 +15,15 @@ app.use(
   })
 );
 
+// const db = mongoose.connection;
+// db.on("error", console.error.bind(console, "connection error:"));
+// db.once("open", function () {
+//   console.log("mongoose connected");
+// });
 
 mongoose
     .connect("mongodb://localhost:27017/tayaraLike", {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     })
     .then(() => console.log("MongoDB Connected"))
     .catch (err => console.log(err))
@@ -28,7 +32,7 @@ var Users = require("./routes/Users")
 //Users
 app.use('/users', Users)
 
-app.listen(port, () => {
+app.listen(port, function() {
     console.log("Server is runing on port: http://localhost:" + port);
   });
   
