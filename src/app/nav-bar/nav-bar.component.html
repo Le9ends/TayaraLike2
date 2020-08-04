@@ -22,21 +22,22 @@
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['login']"
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/login"
           >Login</a
         >
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['signup']"
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/signup"
           >SignUp</a
         >
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['profile']"
-          >Profile</a
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/profile"
+          >{{auth.getUserDetails()?.first_name}}</a
         >
       </li>
+      
       <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle"
@@ -97,6 +98,11 @@
           <a class="dropdown-item" routerLinkActive="active" [routerLink]="['categories']">Others</a>
         </div>
       </li>
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/login" (click)="auth.logout()"
+          >Logout</a
+        >
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input
@@ -105,7 +111,8 @@
         placeholder="Search"
         aria-label="Search"
       />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" [routerLink]="['search']">
         Search
       </button>
     </form>
