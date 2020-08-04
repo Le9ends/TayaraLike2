@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {AuthenticationService} from '../authentication.service'
 
 @Component({
@@ -6,16 +6,10 @@ import {AuthenticationService} from '../authentication.service'
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
-
-  items: Array<{name: string}>;
-  term : String
+export class NavBarComponent {
 
   constructor(public auth:AuthenticationService){ }
   
-  ngOnInit(): void {
-    this.items = new Array({ name: "archie" },{ name: "jake" }, { name: "richard" })
-    this.term = ''
-  }
+ 
 
 }

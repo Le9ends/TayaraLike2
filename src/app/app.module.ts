@@ -53,7 +53,7 @@ const routes: Routes = [
     VehicleComponent,
     MultimediaComponent,
     GardensComponent,
-    LeisureComponent
+    LeisureComponent,
   ],
   imports: [
     BrowserModule,
