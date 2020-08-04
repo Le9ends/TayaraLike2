@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AuthenticationService, UserDetails} from '../authentication.service'
 
 @Component({
@@ -6,7 +6,7 @@ import {AuthenticationService, UserDetails} from '../authentication.service'
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   details: UserDetails
   constructor(private auth: AuthenticationService) { }
 
