@@ -9,6 +9,7 @@ users.use(cors());
 
 process.env.SECRET_KEY = "secret";
 users.post("/signup", (req, res) => {
+  console.log('hi')
   const today = new Date();
   const userData = {
     first_name: req.body.first_name,
@@ -43,6 +44,7 @@ users.post("/signup", (req, res) => {
 });
 
 users.post("/login", (req, res) => {
+  console.log('hello')
   User.findOne({
     email: req.body.email,
   })
@@ -73,7 +75,7 @@ users.post("/login", (req, res) => {
 
 users.get('/profile', (req, res) => {
     var decoded = jwt.verify(req.headers["authorization"], process.env.SECRET_KEY)
-    User.fincOne({
+    User.findOne({
         _id: decoded._id
     })    
     .then(user => {

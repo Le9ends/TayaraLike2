@@ -14,6 +14,7 @@ import { ImmovableComponent } from './categoriesComponent/immovable/immovable.co
 import { MultimediaComponent } from './categoriesComponent/multimedia/multimedia.component';
 import { GardensComponent } from './categoriesComponent/gardens/gardens.component';
 import { LeisureComponent } from './categoriesComponent/leisure/leisure.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter'
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,7 +53,7 @@ const routes: Routes = [
     VehicleComponent,
     MultimediaComponent,
     GardensComponent,
-    LeisureComponent
+    LeisureComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +61,8 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    Ng2SearchPipeModule
+
   ],
   providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent],
