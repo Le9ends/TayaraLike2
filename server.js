@@ -24,9 +24,18 @@ mongoose
     .then(() => console.log("MongoDB Connected"))
     .catch (err => console.log(err))
 
-var Users = require("./routes/Users")
 //Users
-app.use('/users', Users)
+var Users = require("./routes/Users")
+app.use('/users', Users) 
+
+//Search
+var Search = require('./routes/Search.js')
+app.use('/search', Search)
+
+//Product
+var Product = require('./routes/Product.js')
+app.use('/products', Product)
+
 
 app.listen(port, () => {
     console.log("Server is runing on port: http://localhost:" + port);
