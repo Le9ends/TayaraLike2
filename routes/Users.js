@@ -9,7 +9,6 @@ users.use(cors());
 
 process.env.SECRET_KEY = "secret";
 users.post("/signup", (req, res) => {
-  console.log('hi')
   const today = new Date();
   const userData = {
     first_name: req.body.first_name,

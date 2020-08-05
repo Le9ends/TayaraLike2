@@ -18,12 +18,7 @@ export class SignupComponent {
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   register() {
-    const errors = [];
-    if (this.credentials.password != this.credentials.cpassword) {
-      console.log('Passwords do not match');
-      errors.push('Passwords do not match');
-    }
-    
+    if (this.credentials.password == this.credentials.cpassword) {
       this.auth.register(this.credentials).subscribe(
         () => { 
             this.router.navigateByUrl('/login');
@@ -32,5 +27,7 @@ export class SignupComponent {
           console.error(err);
         }
       );
+    }
+
   }
 }

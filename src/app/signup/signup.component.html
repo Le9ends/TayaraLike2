@@ -10,7 +10,7 @@
                 <h1 class="login-heading mb-4">Register</h1>
                 <div class="form-label-group">
                   <label for="first_name">First Name</label>
-                  <br />
+                  <br >
                   <input
                     type="text"
                     name="first_name"
@@ -19,9 +19,10 @@
                     [(ngModel)]="credentials.first_name"
                   />
                 </div>
-                <div class="form-label-group">
+                <br >
+                <div class="form-label-group">  
                   Last Name
-                  <br />
+                  <br >
                   <input
                     type="text"
                     name="last_name"
@@ -30,50 +31,47 @@
                     [(ngModel)]="credentials.last_name"
                   />
                 </div>
+                <br >
                 <div class="form-label-group">
                   Email address
-                  <br />
+                  <br >
                   <input
                     type="email"
                     name="email"
                     class="form-control"
+                    placeholder="Enter Email"
                     [(ngModel)]="credentials.email"
                     required
                   />
                 </div>
+                <br >
                 <div class="form-label-group">
                   Password
-                  <br />
+                  <br >
                   <input
                     type="password"
                     name="password"
                     class="form-control"
+                    placeholder="Enter Password"
                     [(ngModel)]="credentials.password"
                     required
-                    autofocus
                   />
                 </div>
+                <br >
+
                 <div class="form-label-group">
                   Confirm password
-                  <br />
+                  <br >
                   <input
                     type="password"
                     name="cpassword"
+                    placeholder="Renter Password"
                     class="form-control"
                     [(ngModel)]="credentials.cpassword"
                   />
                 </div>
 
-                <div class="custom-control custom-checkbox mb-3">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="customCheck1"
-                  />
-                  <label class="custom-control-label" for="customCheck1"
-                    >Remember password</label
-                  >
-                </div>
+                <br>
                 <button
                   class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                   type="submit"
