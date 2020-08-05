@@ -43,7 +43,6 @@ users.post("/signup", (req, res) => {
 });
 
 users.post("/login", (req, res) => {
-  console.log('hello')
   User.findOne({
     email: req.body.email,
   })
