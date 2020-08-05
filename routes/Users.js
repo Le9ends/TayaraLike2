@@ -73,7 +73,7 @@ users.post("/login", (req, res) => {
 
 users.get('/profile', (req, res) => {
     var decoded = jwt.verify(req.headers["authorization"], process.env.SECRET_KEY)
-    User.fincOne({
+    User.findOne({
         _id: decoded._id
     })    
     .then(user => {
