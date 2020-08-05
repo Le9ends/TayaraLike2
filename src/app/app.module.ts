@@ -15,6 +15,7 @@ import { GardensComponent } from "./categoriesComponent/gardens/gardens.componen
 import { LeisureComponent } from "./categoriesComponent/leisure/leisure.component";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 
+
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
@@ -55,6 +56,8 @@ const routes: Routes = [
     GardensComponent,
     LeisureComponent,
     AddProfileComponent,
+    NewProdComponent,
+
   ],
   imports: [
     BrowserModule,
