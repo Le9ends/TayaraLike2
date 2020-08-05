@@ -19,7 +19,6 @@ app.use(
 mongoose
     .connect("mongodb://localhost:27017/tayaraLike", {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     })
     .then(() => console.log("MongoDB Connected"))
     .catch (err => console.log(err))
@@ -28,7 +27,7 @@ var Users = require("./routes/Users")
 //Users
 app.use('/users', Users)
 
-app.listen(port, () => {
+app.listen(port, function() {
     console.log("Server is runing on port: http://localhost:" + port);
   });
   
