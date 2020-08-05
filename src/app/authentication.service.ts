@@ -15,6 +15,7 @@ export interface UserDetails {
 }
 interface TokenResponse {
   token: string;
+  success: boolean;
 }
 
 export interface TokenPayload {
@@ -87,7 +88,7 @@ export class AuthenticationService {
     return request;
   }
   public profile(): Observable<any> {
-    return this.http.get('/users/profile', {
+    return this.http.get('http://localhost:5000/users/profile', {
       headers: { Authorization: `${this.getToken()}` },
     });
   }
