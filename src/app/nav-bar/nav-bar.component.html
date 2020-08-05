@@ -1,8 +1,11 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLinkActive="active" [routerLink]="['home']"
-    >Tayara</a
-  >
+  <a class="navbar-brand" routerLinkActive="active" routerLink="/home">
+    <img
+      src="https://pbs.twimg.com/media/DC3-y8lUAAAvSGr.jpg:large"
+      alt="Girl in a jacket"
+      width="100"
+      height="50"
+  /></a>
   <button
     class="navbar-toggler"
     type="button"
@@ -18,26 +21,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['home']"
+        <a class="nav-link" routerLinkActive="active" routerLink="/home"
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/login"
-          >Login</a
-        >
-      </li>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/signup"
-          >SignUp</a
-        >
-      </li>
-      <li *ngIf="auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link"  routerLink="/profile"
-          >{{auth.getUserDetails()?.first_name}}</a
-        >
-      </li>
-      
       <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle"
@@ -51,55 +38,67 @@
           Categories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLinkActive="active" [routerLink]="['immovable']">
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              class="bi bi-house"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"
-              />
-            </svg>
+          <a
+            class="dropdown-item"
+            routerLinkActive="active"
+            [routerLink]="['immovable']"
+          >
             Immovable
           </a>
-          <a class="dropdown-item" routerLinkActive="active" [routerLink]="['leisure']">
-            <svg
-              width="1em"
-              height="1em"
-              viewBox="0 0 16 16"
-              class="bi bi-bicycle"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935 2.375 3.8a.5.5 0 1 1-.848.53L10.5 6.943l-2.076 3.322A.5.5 0 0 1 8 10.5H3a.5.5 0 0 1-.424-.765L5 5.857V5h-.5a.5.5 0 0 1-.5-.5zm1.5 2.443L3.902 9.5h3.196L5.5 6.943zM8 9.057L9.598 6.5H6.402L8 9.057z"
-              />
-            </svg>
+          <a
+            class="dropdown-item"
+            routerLinkActive="active"
+            [routerLink]="['leisure']"
+          >
             Leisure and entertainment
           </a>
-          <a class="dropdown-item" routerLinkActive="active" [routerLink]="['vehicle']">Vehicle</a>
-          <a class="dropdown-item" routerLinkActive="active" [routerLink]="['multimedia']"> IT and multimedia</a>
-          <a class="dropdown-item" routerLinkActive="active" [routerLink]="['gardens']"> Home and gardens </a>
+          <a
+            class="dropdown-item"
+            routerLinkActive="active"
+            [routerLink]="['vehicle']"
+            >Vehicle</a
+          >
+          <a
+            class="dropdown-item"
+            routerLinkActive="active"
+            [routerLink]="['multimedia']"
+          >
+            IT and multimedia</a
+          >
+          <a
+            class="dropdown-item"
+            routerLinkActive="active"
+            [routerLink]="['gardens']"
+          >
+            Home and gardens
+          </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLinkActive="active" [routerLink]="['categories']">Others</a>
+          <a
+            class="dropdown-item"
+            routerLinkActive="active"
+            [routerLink]="['categories']"
+            >Others</a
+          >
         </div>
       </li>
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/login"
+          >Login</a
+        >
+      </li>
+      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/signup"
+          >SignUp</a
+        >
+      </li>
       <li *ngIf="auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link"  routerLink="/login" (click)="auth.logout()"
+        <a class="nav-link" routerLink="/profile">{{
+          auth.getUserDetails()?.first_name
+        }}</a>
+      </li>
+
+      <li *ngIf="auth.isLoggedIn()" class="nav-item">
+        <a class="nav-link" routerLink="/login" (click)="auth.logout()"
           >Logout</a
         >
       </li>
@@ -112,8 +111,12 @@
         aria-label="Search"
         [(ngModel)]="term"
       />
-      
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink='/search'>
+
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        type="submit"
+        routerLink="/search"
+      >
         Search
       </button>
     </form>
