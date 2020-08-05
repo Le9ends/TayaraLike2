@@ -19,6 +19,7 @@ app.use(
 mongoose
     .connect("mongodb://localhost:27017/tayaraLike", {
     useNewUrlParser: true,
+    useUnifiedTopology: true 
     })
     .then(() => console.log("MongoDB Connected"))
     .catch (err => console.log(err))
@@ -34,6 +35,10 @@ app.use('/search', Search)
 //Product
 var Product = require('./routes/Product.js')
 app.use('/products', Product)
+
+//Category  
+var Category = require('./routes/Category.js')
+app.use('/categories', Category)
 
 
 app.listen(port, function() {

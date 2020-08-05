@@ -21,6 +21,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { NewProdComponent } from './new-prod/new-prod.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -54,6 +55,7 @@ const routes: Routes = [
     GardensComponent,
     LeisureComponent,
     NewProdComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,

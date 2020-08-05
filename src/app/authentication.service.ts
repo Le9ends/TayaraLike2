@@ -15,7 +15,6 @@ export interface UserDetails {
 }
 interface TokenResponse {
   token: string;
-  success: boolean;
 }
 
 export interface TokenPayload {
