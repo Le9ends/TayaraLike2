@@ -63,7 +63,6 @@ export class AuthenticationService {
     }
   }
   public register(user: TokenPayload): Observable<any> {
-    console.log('brrrrrrrrrrrrrrrr');
     const base = this.http.post('http://localhost:5000/users/signup', user);
     const request = base.pipe(
       map((data: TokenResponse) => {
