@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AuthenticationService, TokenPayload } from '../authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
+  credentials: TokenPayload = {
+    _id: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    cpassword: '',
+  };
+  constructor(private auth: AuthenticationService, private router: Router) {}
 
-  constructor() { }
+  register() {
+    if (this.credentials.password == this.credentials.cpassword) {
+      this.auth.register(this.credentials).subscribe(
+        () => { 
+            this.router.navigateByUrl('/login');
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
+    }
 
-  ngOnInit(): void {
   }
-
 }
