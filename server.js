@@ -1,20 +1,18 @@
 var express = require("express");
-var cors = require("cors");
 var bodyParser = require("body-parser");
 var app = express();
+var path = require("path");
+var multer = require("multer");
+const cors = require("cors");
 var mongoose = require("mongoose");
 var port = process.env.PORT || 5000;
-
-// const path = require("path");
-
 app.use(bodyParser.json());
-app.use(cors());
 app.use(
   bodyParser.urlencoded({
     extended: false,
   })
 );
-
+app.use(cors());
 mongoose
   .connect("mongodb://localhost:27017/tayaraLike", {
     useNewUrlParser: true,
@@ -77,6 +75,16 @@ var select = function (req, res) {
   );
 };
 
+var admin = function (req, res) {
+  ad.find(
+    {
+      show: false,
+    },
+    (err, docs) => {
+      res.send(docs);
+    }
+  );
+};
 var deleteOne = function (req, res) {
   ad.deleteOne({ ads: req.body.item }, function (err) {
     if (err) console.log("error deleting one item from the database ");
@@ -85,6 +93,37 @@ var deleteOne = function (req, res) {
   });
 };
 
+// multer
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype == "image/jpeg" || file.mimetype == "image/png") {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+const upload = multer({ storage: storage, fileFilter: fileFilter });
+
+app.post("/test", upload.single("recfile"), (req, res, next) => {
+  try {
+    console.log(req.file);
+    return res.status(201).json({
+      message: "File uploded successfully",
+    });
+  } catch (error) {
+    console.error(error);
+  }
+});
+app.get("/admin", (req, res) => {
+  admin(req, res);
+});
 app.post("/", (req, res) => {
   add(req, res);
 });
@@ -93,6 +132,10 @@ app.get("/search", (req, res) => {
 });
 app.delete("/", (req, res) => {
   deleteOne(req, res);
+});
+app.post("/test", (req, res) => {
+  console.log(req.body);
+  res.send("ok");
 });
 app.listen(port, function () {
   console.log("Server is runing on port: http://localhost:" + port);

@@ -40,12 +40,12 @@
           ></textarea>
         </div>
 
-        <br /><input type="file" />
+        <br /><input type="file" (change)="fileHandler($event)" />
         <br />
         <br />
         <button
           class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-          type="submit"
+          type="button"
           routerLink="/profile"
           (click)="clickHandler()"
         >
