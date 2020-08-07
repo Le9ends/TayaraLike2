@@ -28,7 +28,18 @@
           />
         </div>
         <br />
-
+        <div class="form-label-group">
+          Category
+          <br />
+          <input
+            type="text"
+            name="Category"
+            class="form-control"
+            placeholder="Enter Category"
+            (keyup)="handleCategory($event)"
+          />
+        </div>
+        <br />
         <div class="form-label-group">
           Description :
           <br />

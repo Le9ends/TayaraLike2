@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,8 +13,8 @@ import { VehicleComponent } from './categoriesComponent/vehicle/vehicle.componen
 import { ImmovableComponent } from './categoriesComponent/immovable/immovable.component';
 import { MultimediaComponent } from './categoriesComponent/multimedia/multimedia.component';
 import { GardensComponent } from './categoriesComponent/gardens/gardens.component';
-import { LeisureComponent } from './categoriesComponent/leisure/leisure.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NewProdComponent } from "./new-prod/new-prod.component";
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,7 +39,6 @@ const routes: Routes = [
   { path: 'vehicle', component: VehicleComponent },
   { path: 'multimedia', component: MultimediaComponent },
   { path: 'gardens', component: GardensComponent },
-  { path: 'leisure', component: LeisureComponent },
   { path: 'admin', component: AdminComponent },
 ];
 
@@ -57,7 +57,11 @@ const routes: Routes = [
     GardensComponent,
     LeisureComponent,
     AddProfileComponent,
+
+    NewProdComponent,
+
     AdminComponent,
+
   ],
   imports: [
     BrowserModule,
