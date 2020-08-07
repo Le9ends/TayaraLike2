@@ -20,7 +20,6 @@ import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { AuthenticationService } from "./authentication.service";
 import { AuthGuardService } from "./auth-guard.service";
 import { NewProdComponent } from "./new-prod/new-prod.component";
-import { CategoriesComponent } from "./categories/categories.component";
 import { AddProfileComponent } from "./add-profile/add-profile.component";
 import { AdminComponent } from "./admin/admin.component";
 import { ClothesComponent } from "./categoriesComponent/clothes/clothes.component";
@@ -59,7 +58,6 @@ const routes: Routes = [
     GardensComponent,
     AddProfileComponent,
     NewProdComponent,
-    CategoriesComponent,
     AdminComponent,
     ClothesComponent,
   ],
