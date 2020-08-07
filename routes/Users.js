@@ -14,6 +14,7 @@ users.post("/signup", (req, res) => {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
+    phone: req.body.phone,
     password: req.body.password,
     created: today,
   };
@@ -53,6 +54,7 @@ users.post("/login", (req, res) => {
             _id: user._id,
             first_name: user.first_name,
             last_name: user.last_name,
+            phone:user.phone,
             email: user.email,
           };
           let token = jwt.sign(payload, process.env.SECRET_KEY, {

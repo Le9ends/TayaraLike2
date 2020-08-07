@@ -12,7 +12,6 @@ import { VehicleComponent } from './categoriesComponent/vehicle/vehicle.componen
 import { ImmovableComponent } from './categoriesComponent/immovable/immovable.component';
 import { MultimediaComponent } from './categoriesComponent/multimedia/multimedia.component';
 import { GardensComponent } from './categoriesComponent/gardens/gardens.component';
-import { LeisureComponent } from './categoriesComponent/leisure/leisure.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppComponent } from './app.component';
@@ -22,6 +21,7 @@ import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AddProfileComponent } from './add-profile/add-profile.component';
 import { AdminComponent } from './admin/admin.component';
+import { ClothesComponent } from './categoriesComponent/clothes/clothes.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -38,8 +38,8 @@ const routes: Routes = [
   { path: 'vehicle', component: VehicleComponent },
   { path: 'multimedia', component: MultimediaComponent },
   { path: 'gardens', component: GardensComponent },
-  { path: 'leisure', component: LeisureComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'clothes', component: ClothesComponent },
 ];
 
 @NgModule({
@@ -55,9 +55,9 @@ const routes: Routes = [
     VehicleComponent,
     MultimediaComponent,
     GardensComponent,
-    LeisureComponent,
     AddProfileComponent,
     AdminComponent,
+    ClothesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,26 @@
 <div class="container">
   <div class="jumbotron mt-5">
     <div class="col-sm-8 mx-auto">
-      <h1 class="text-center">PROFILE</h1>
+      <h1 class="text-center">
+        Welcome to your profile Mr. {{ details?.first_name }}
+      </h1>
     </div>
     <table class="table col-md-6 mx-auto">
       <tr>
         <td>First Name</td>
-        <td>{{details?.first_name}}</td>
+        <td>{{ details?.first_name }}</td>
       </tr>
       <tr>
         <td>Last Name</td>
-        <td>{{details?.last_name}}</td>
+        <td>{{ details?.last_name }}</td>
       </tr>
       <tr>
         <td>Email</td>
-        <td>{{details?.email}}</td>
+        <td>{{ details?.email }}</td>
+      </tr>
+      <tr>
+        <td>Phone Number</td>
+        <td>{{ details?.phone }}</td>
       </tr>
     </table>
     <div style="text-align: center;">
