@@ -14,7 +14,17 @@ export class SearchComponent implements OnInit {
        productPrice: Number;
        description: String;
        category: String;
+       file : string;
+       fileName: string;
        }>  
+  products : Array<{ name: string;
+    productName: String;
+    productPrice: Number;
+    description: String;
+    category: String;
+    file : string;
+    fileName: string;
+  }>
   term : string = '';
 
   constructor(private search : SearchService) { }
@@ -23,16 +33,22 @@ export class SearchComponent implements OnInit {
     this.getItem()
   }
 
+  // link () {
+  //  this.products = this.items.filter(res => res.file = res.fileName )
+  //   return `../../assets/img/${this.file}`
+  // }
+ 
   getItem() {
     this.search.getItems().subscribe((result : any) =>{
-      result.map(res => res.name = res.productName)
+      this.products = result
       this.items = result
       console.log('data',result)
       console.log(this.items)
     })
   }
   changeItems() {
-    this.items =this.items.filter(item => item.name === this.term)    
+    console.log(this.term)
+    this.products = this.items.filter(item => item.productName.includes(this.term))    
   }
 
 } 
