@@ -7,10 +7,11 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./add-profile.component.css"],
 })
 export class AddProfileComponent implements OnInit {
+  constructor(private httpClient: HttpClient) {}
+  public selectedFile;
   productName = "";
   price = "";
   description = "";
-  constructor() {}
   handleName(e) {
     this.productName = e.target.value;
   }
@@ -20,14 +21,17 @@ export class AddProfileComponent implements OnInit {
   handleDescription(e) {
     this.description = e.target.value;
   }
+  fileHandler(e) {
+    this.selectedFile = e.target.files[0];
+  }
   clickHandler() {
-    // this.http
-    //   .post<any>("https://jsonplaceholder.typicode.com/posts", {
-    //     title: "Angular POST Request Example",
-    //   })
-    //   .subscribe((data) => {
-    //     this.postId = data.id;
-    //   });
+    const uploadData = new FormData();
+    console.log("image : ", this.selectedFile);
+    uploadData.append("imageFile", this.selectedFile);
+    console.log("after : ", uploadData);
+    this.httpClient
+      .post("http://localhost:5000/test", uploadData)
+      .subscribe((res) => {});
   }
   ngOnInit(): void {}
 }
