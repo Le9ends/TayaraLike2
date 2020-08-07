@@ -13,8 +13,9 @@ export class LoginComponent {
     first_name: '',
     last_name: '',
     email: '',
+    phone:'',
     password: '',
-    cpassword: '',
+    cpassword: ''
   };
   constructor(private auth: AuthenticationService, private router: Router) {}
   login() {
@@ -30,7 +31,6 @@ export class LoginComponent {
       (err) => {
         console.error(err);
       }
-      // hi
     );
   }
 }

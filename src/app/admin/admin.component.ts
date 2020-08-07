@@ -13,8 +13,8 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.admin().subscribe(
-      user => {
-        this.details = user
+      admin => {
+        this.details = admin
       },
       err => {
         console.error(err)

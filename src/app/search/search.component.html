@@ -1,6 +1,22 @@
 <div>
-    <input type="text" [(ngModel)]="term" />
-    <div *ngFor = "let item of items | filter:term">{{item.name}}</div>
-    <div *ngIf="(items | filter:term).length < 1">Not Found</div>
-    
-</div>
+    <input 
+    class="form-control mr-sm-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    [(ngModel)]="term"
+    (ngModelChange)="changeItems()"
+    >
+    <div class="row" *ngFor = "let item of items">
+      <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              {{item.name}}
+            </h4>
+            <!-- <p class="card-text">{{item.description}}</p> -->
+          </div>
+        </div> 
+      </div>
+</div> 

@@ -10,7 +10,7 @@
                 <h1 class="login-heading mb-4">Register</h1>
                 <div class="form-label-group">
                   <label for="first_name">First Name</label>
-                  <br >
+                  <br />
                   <input
                     type="text"
                     name="first_name"
@@ -19,10 +19,10 @@
                     [(ngModel)]="credentials.first_name"
                   />
                 </div>
-                <br >
-                <div class="form-label-group">  
+                <br />
+                <div class="form-label-group">
                   Last Name
-                  <br >
+                  <br />
                   <input
                     type="text"
                     name="last_name"
@@ -31,10 +31,10 @@
                     [(ngModel)]="credentials.last_name"
                   />
                 </div>
-                <br >
+                <br />
                 <div class="form-label-group">
                   Email address
-                  <br >
+                  <br />
                   <input
                     type="email"
                     name="email"
@@ -44,10 +44,23 @@
                     required
                   />
                 </div>
-                <br >
+                <br />
+                <div class="form-label-group">
+                  Phone number
+                  <br />
+                  <input
+                    type="text"
+                    name="phone"
+                    class="form-control"
+                    placeholder="Enter your Phone"
+                    [(ngModel)]="credentials.phone"
+                    required
+                  />
+                </div>
+                <br />
                 <div class="form-label-group">
                   Password
-                  <br >
+                  <br />
                   <input
                     type="password"
                     name="password"
@@ -57,11 +70,11 @@
                     required
                   />
                 </div>
-                <br >
+                <br />
 
                 <div class="form-label-group">
                   Confirm password
-                  <br >
+                  <br />
                   <input
                     type="password"
                     name="cpassword"
@@ -71,7 +84,7 @@
                   />
                 </div>
 
-                <br>
+                <br />
                 <button
                   class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                   type="submit"
