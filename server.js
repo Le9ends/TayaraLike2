@@ -16,13 +16,17 @@ app.use(cors());
 mongoose
   .connect("mongodb://localhost:27017/tayaraLike", {
     useNewUrlParser: true,
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+    useUnifiedTopology: true 
+    })
+    .then(() => console.log("MongoDB Connected"))
+    .catch (err => console.log(err))
+
+
 
 var Users = require("./routes/Users");
 //Users
 app.use("/users", Users);
+
 // model of the ADS
 const adSchema = new mongoose.Schema({
   productName: {
@@ -71,13 +75,17 @@ var add = function (req, res) {
 var select = function (req, res) {
   ad.find(
     {
-      category: req.query.category,
+      category: req.body.category,
     },
     (err, docs) => {
       res.send(docs);
     }
   );
 };
+app.get("/category", (req, res) => {
+  console.log(res)
+  select(req, res);
+});
 
 var admin = function (req, res) {
   ad.find(
@@ -129,10 +137,18 @@ app.post("/upload", upload.single("imageFile"), (req, res, next) => {
 app.get("/admin", (req, res) => {
   admin(req, res);
 });
-
-app.get("/search", (req, res) => {
-  select(req, res);
+app.post("/", (req, res) => {
+  add(req, res);
 });
+
+app.get('/search', (req,res) => {
+  ad.find({}, function(err, result) {      
+    if(err) {console.log(err)}
+      res.send(result)
+  })
+})
+
+
 app.delete("/", (req, res) => {
   deleteOne(req, res);
 });
