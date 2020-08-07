@@ -1,0 +1,68 @@
+<div class="container-fluid align-items-center">
+  <div class="d-flex align-items-center py-5">
+    <div class="container">
+      <form>
+        <h1 class="login-heading mb-4">Enter your product details :</h1>
+        <div class="form-label-group">
+          <label for="first_name">Product Name</label>
+          <br />
+          <input
+            type="text"
+            name="product_name"
+            class="form-control"
+            placeholder="Enter Product Name"
+            (keyup)="handleName($event)"
+          />
+        </div>
+
+        <br />
+        <div class="form-label-group">
+          Price
+          <br />
+          <input
+            type="text"
+            name="price"
+            class="form-control"
+            placeholder="Enter price"
+            (keyup)="handlePrice($event)"
+          />
+        </div>
+        <br />
+        <div class="form-label-group">
+          Category
+          <br />
+          <input
+            type="text"
+            name="Category"
+            class="form-control"
+            placeholder="Enter Category"
+            (keyup)="handleCategory($event)"
+          />
+        </div>
+        <br />
+        <div class="form-label-group">
+          Description :
+          <br />
+          <textarea
+            name="description"
+            placeholder="enter your product description"
+            class="form-control"
+            (keyup)="handleDescription($event)"
+          ></textarea>
+        </div>
+
+        <br /><input type="file" (change)="fileHandler($event)" />
+        <br />
+        <br />
+        <button
+          class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+          type="button"
+          routerLink="/profile"
+          (click)="clickHandler()"
+        >
+          Upload
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

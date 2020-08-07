@@ -12,6 +12,7 @@ export class SignupComponent {
     first_name: '',
     last_name: '',
     email: '',
+    phone:'',
     password: '',
     cpassword: '',
   };

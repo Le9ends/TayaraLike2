@@ -9,6 +9,7 @@ export interface UserDetails {
   first_name: String;
   last_name: String;
   email: String;
+  phone: String;
   passsword: String;
   exp: number;
   iat: number;
@@ -23,6 +24,7 @@ export interface TokenPayload {
   first_name: string;
   last_name: string;
   email: string;
+  phone: string;
   password: string;
   cpassword: string;
 }
@@ -88,6 +90,11 @@ export class AuthenticationService {
   }
   public profile(): Observable<any> {
     return this.http.get('http://localhost:5000/users/profile', {
+      headers: { Authorization: `${this.getToken()}` },
+    });
+  }
+  public admin(): Observable<any> {
+    return this.http.get('http://localhost:5000/users/admin', {
       headers: { Authorization: `${this.getToken()}` },
     });
   }

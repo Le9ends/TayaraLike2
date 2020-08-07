@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,20 +13,23 @@ import { VehicleComponent } from './categoriesComponent/vehicle/vehicle.componen
 import { ImmovableComponent } from './categoriesComponent/immovable/immovable.component';
 import { MultimediaComponent } from './categoriesComponent/multimedia/multimedia.component';
 import { GardensComponent } from './categoriesComponent/gardens/gardens.component';
-import { LeisureComponent } from './categoriesComponent/leisure/leisure.component';
-import {Ng2SearchPipeModule} from 'ng2-search-filter'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NewProdComponent } from "./new-prod/new-prod.component";
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
-import { NewProdComponent } from './new-prod/new-prod.component';
+import { AddProfileComponent } from './add-profile/add-profile.component';
+import { AdminComponent } from './admin/admin.component';
+import { ClothesComponent } from './categoriesComponent/clothes/clothes.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'add-profile', component: AddProfileComponent },
   {
     path: 'profile',
     component: ProfileComponent,
@@ -36,7 +40,8 @@ const routes: Routes = [
   { path: 'vehicle', component: VehicleComponent },
   { path: 'multimedia', component: MultimediaComponent },
   { path: 'gardens', component: GardensComponent },
-  { path: 'leisure', component: LeisureComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'clothes', component: ClothesComponent },
 ];
 
 @NgModule({
@@ -52,8 +57,12 @@ const routes: Routes = [
     VehicleComponent,
     MultimediaComponent,
     GardensComponent,
-    LeisureComponent,
+    AddProfileComponent,
+
     NewProdComponent,
+
+    AdminComponent,
+    ClothesComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +70,7 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    Ng2SearchPipeModule
-
+    Ng2SearchPipeModule,
   ],
   providers: [AuthenticationService, AuthGuardService],
   bootstrap: [AppComponent],
