@@ -8,6 +8,15 @@ export interface SearchResults {
   productPrice: Number;
   description: String;
   category: String;
+  fileName: string;
+  }>
+  products : Array<{ name: string;
+    productName: String;
+    productPrice: Number;
+    description: String;
+    category: String;
+    file : string;
+    fileName: string;
   }>
 
 }
