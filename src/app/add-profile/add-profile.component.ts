@@ -12,6 +12,10 @@ export class AddProfileComponent implements OnInit {
   productName = "";
   price = "";
   description = "";
+  category = "";
+  handleCategory(e) {
+    this.category = e.target.value;
+  }
   handleName(e) {
     this.productName = e.target.value;
   }
@@ -26,12 +30,15 @@ export class AddProfileComponent implements OnInit {
   }
   clickHandler() {
     const uploadData = new FormData();
-    console.log("image : ", this.selectedFile);
-    uploadData.append("imageFile", this.selectedFile);
-    console.log("after : ", uploadData);
+    uploadData.append("imageFile", this.selectedFile, this.productName);
+    uploadData.append("price", this.price);
+    uploadData.append("description", this.description);
+    uploadData.append("category", this.category);
+
     this.httpClient
-      .post("http://localhost:5000/test", uploadData)
-      .subscribe((res) => {});
+      .post("http://localhost:5000/upload", uploadData)
+      .subscribe((response) => {});
   }
+
   ngOnInit(): void {}
 }

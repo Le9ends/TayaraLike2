@@ -47,13 +47,6 @@
           <a
             class="dropdown-item"
             routerLinkActive="active"
-            [routerLink]="['leisure']"
-          >
-            Leisure and entertainment
-          </a>
-          <a
-            class="dropdown-item"
-            routerLinkActive="active"
             [routerLink]="['vehicle']"
             >Vehicle</a
           >
@@ -71,13 +64,13 @@
           >
             Home and gardens
           </a>
-          <div class="dropdown-divider"></div>
           <a
             class="dropdown-item"
             routerLinkActive="active"
-            [routerLink]="['categories']"
-            >Others</a
+            [routerLink]="['clothes']"
           >
+            Clothes
+          </a>
         </div>
       </li>
       <li *ngIf="!auth.isLoggedIn()" class="nav-item">
