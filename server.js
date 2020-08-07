@@ -45,20 +45,24 @@ const adSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  fileName: { type: String },
 });
 const ad = mongoose.model("ad", adSchema);
 // CRUD
 var add = function (req, res) {
+  console.log("the file :", req.file);
+  console.log("the body : ", req.body);
   ad.create(
     {
-      productName: req.body.productName,
-      productPrice: req.body.productPrice,
+      productName: req.file.originalname,
+      productPrice: req.body.price,
       description: req.body.description,
       category: req.body.category,
+      fileName: req.file.filename,
       show: false,
     },
     function (err, small) {
-      if (err) console.log("error adding to the database");
+      if (err) return console.log("error adding to the database");
       console.log("added successfully to the database");
       res.end();
     }
@@ -95,9 +99,10 @@ var deleteOne = function (req, res) {
 
 // multer
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads");
-  },
+  destination: "./src/assets/img",
+  // (req, file, cb) => {
+  // cb(null, "./src/assets");
+  // },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
   },
@@ -111,9 +116,9 @@ const fileFilter = (req, file, cb) => {
 };
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 
-app.post("/test", upload.single("recfile"), (req, res, next) => {
+app.post("/upload", upload.single("imageFile"), (req, res, next) => {
+  add(req, res);
   try {
-    console.log(req.file);
     return res.status(201).json({
       message: "File uploded successfully",
     });
@@ -124,18 +129,12 @@ app.post("/test", upload.single("recfile"), (req, res, next) => {
 app.get("/admin", (req, res) => {
   admin(req, res);
 });
-app.post("/", (req, res) => {
-  add(req, res);
-});
+
 app.get("/search", (req, res) => {
   select(req, res);
 });
 app.delete("/", (req, res) => {
   deleteOne(req, res);
-});
-app.post("/test", (req, res) => {
-  console.log(req.body);
-  res.send("ok");
 });
 app.listen(port, function () {
   console.log("Server is runing on port: http://localhost:" + port);
