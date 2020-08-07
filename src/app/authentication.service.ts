@@ -91,6 +91,11 @@ export class AuthenticationService {
       headers: { Authorization: `${this.getToken()}` },
     });
   }
+  public admin(): Observable<any> {
+    return this.http.get('http://localhost:5000/users/admin', {
+      headers: { Authorization: `${this.getToken()}` },
+    });
+  }
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('usertoken');

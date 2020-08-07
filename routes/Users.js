@@ -87,5 +87,21 @@ users.get('/profile', (req, res) => {
         res.send('error: ' + err)
     })
 })
+users.get('/admin', (req, res) => {
+  var decoded = jwt.verify(req.headers["authorization"], process.env.SECRET_KEY)
+  User.findOne({
+      _id: decoded._id
+  })    
+  .then(admin => {
+      if(admin){
+          res.json(admin)
+      }else{
+          res.send('Admin does not exist!')
+      }
+  })
+  .catch(err => {
+      res.send('error: ' + err)
+  })
+})
 
 module.exports = users;
