@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 export interface SearchResults {
   items : Array<{
@@ -15,7 +16,7 @@ export interface SearchResults {
 @Injectable({
   providedIn: 'root'
 })
-export class GardensService {
+export class ClothesService {
 
   uri = 'http://localhost:5000'
 
@@ -23,7 +24,7 @@ export class GardensService {
 
   getItemByCategory ()  {
      
-    return this.http.get(`${this.uri}/search?category=gardens`)
+    return this.http.get(`${this.uri}/search?category=clothes`)
 
   }
 }

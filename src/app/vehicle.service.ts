@@ -15,7 +15,7 @@ export interface SearchResults {
 @Injectable({
   providedIn: 'root'
 })
-export class GardensService {
+export class VehicleService {
 
   uri = 'http://localhost:5000'
 
@@ -23,7 +23,7 @@ export class GardensService {
 
   getItemByCategory ()  {
      
-    return this.http.get(`${this.uri}/search?category=gardens`)
+    return this.http.get(`${this.uri}/search?category=vehicle`)
 
   }
 }
