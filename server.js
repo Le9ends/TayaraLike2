@@ -101,7 +101,6 @@ app.get('/search', (req,res) => {
   ad.find({}, function(err, result) {      
     if(err) {console.log(err)}
       res.send(result)
-      // console.log(result[0])
   })
 })
 
