@@ -32,11 +32,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.getItem()
   }
-
-  // link () {
-  //  this.products = this.items.filter(res => res.file = res.fileName )
-  //   return `../../assets/img/${this.file}`
-  // }
  
   getItem() {
     this.search.getItems().subscribe((result : any) =>{
