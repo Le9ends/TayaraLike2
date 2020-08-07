@@ -31,7 +31,7 @@
       <div
         class="carousel-item"
         style="
-          background-image: url('https://previews.123rf.com/images/vadmary/vadmary1403/vadmary140300016/26747325-maison-avec-jardin-et-mat%C3%A9riel-de-construction-sur-un-ruban-%C3%A0-mesurer-concept-de-construction.jpg');
+          background-image: url('https://www.therange.co.uk/_m5/1/6/1592811208_2_7166.jpg');
         "
         routerLink="/gardens"
       >
@@ -42,9 +42,11 @@
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div
         class="carousel-item"
-        style="background-image: url('https://dvs.co.zm/Images/collage3.png');"
+        style="
+          background-image: url('https://www.therange.co.uk/_m5/1/6/1592811208_2_7166.jpg');
+        "
         routerLink="/multimedia"
-        >
+      >
         <div class="carousel-caption d-none d-md-block">
           <h1 class="display-4">IT and multimedia</h1>
         </div>
@@ -94,14 +96,45 @@
 </header>
 
 <!-- Page Content -->
-<section class="py-5">
+<!-- <section class="py-5">
   <div class="container">
-    <h1 class="display-4">Full Page Image Slider</h1>
-    <p class="lead">
-      The background images for the slider are set directly in the HTML using
-      inline CSS. The images in this snippet are from
-      <a href="https://unsplash.com">Unsplash</a>, taken by
-      <a href="https://unsplash.com/@joannakosinska">Joanna Kosinska</a>!
-    </p>
+    <h1 class="display-4">Announcement</h1>
+    <div class="row" *ngFor="let item of products">
+      <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
+          <div class="card-body">
+            <h1 class="card-title">
+              {{ item.productName }}
+            </h1>
+            <h4>{{ item.productPrice }}</h4>
+            <p class="card-text">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+</section> -->
+
+<div class="container" *ngFor="let item of products">
+  <h1 class="my-4">
+    Announcement
+    <small>Secondary Text</small>
+  </h1>
+  <div class="container-grid">
+    <div class="column" >
+      <div>
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
+          <div class="card-body">
+            <h1 class="card-title">
+              {{ item.productName }}
+            </h1>
+            <h4>{{ item.productPrice }}</h4>
+            <p class="card-text">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

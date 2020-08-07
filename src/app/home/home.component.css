@@ -8,3 +8,18 @@
   background-size: cover;
   cursor: pointer;
 }
+.card-body {
+  text-align: center;
+  background-color: rgb(211, 211, 211);
+}
+.column {
+  padding: 1em;
+ 
+}
+.container-grid {
+  display: grid;
+  grid-template-columns: 30rem 30rem 30rem;
+}
+.container {
+  margin-left: 195px;
+}

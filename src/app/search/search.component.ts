@@ -17,7 +17,8 @@ export class SearchComponent implements OnInit {
        file : string;
        fileName: string;
        }>  
-  products : Array<{ name: string;
+  products : Array<{ 
+    name: string;
     productName: String;
     productPrice: Number;
     description: String;
@@ -32,11 +33,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.getItem()
   }
-
-  // link () {
-  //  this.products = this.items.filter(res => res.file = res.fileName )
-  //   return `../../assets/img/${this.file}`
-  // }
  
   getItem() {
     this.search.getItems().subscribe((result : any) =>{

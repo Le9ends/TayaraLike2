@@ -25,7 +25,7 @@ export class LoginComponent {
           alert('Wrong Email or Password');
           this.credentials.password = '';
         } else {
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/');
         }
       },
       (err) => {

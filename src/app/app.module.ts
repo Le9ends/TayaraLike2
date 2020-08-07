@@ -25,7 +25,7 @@ import { AdminComponent } from "./admin/admin.component";
 import { ClothesComponent } from "./categoriesComponent/clothes/clothes.component";
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
+  { path: "", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "add-profile", component: AddProfileComponent },
