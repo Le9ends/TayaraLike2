@@ -13,6 +13,7 @@ export class LoginComponent {
     first_name: '',
     last_name: '',
     email: '',
+    phone:'',
     password: '',
     cpassword: '',
   };

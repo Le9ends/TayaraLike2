@@ -23,6 +23,7 @@ import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { AddProfileComponent } from './add-profile/add-profile.component';
 import { AdminComponent } from './admin/admin.component';
+import { ClothesComponent } from './categoriesComponent/clothes/clothes.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'multimedia', component: MultimediaComponent },
   { path: 'gardens', component: GardensComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'clothes', component: ClothesComponent },
 ];
 
 @NgModule({
@@ -55,13 +57,12 @@ const routes: Routes = [
     VehicleComponent,
     MultimediaComponent,
     GardensComponent,
-    LeisureComponent,
     AddProfileComponent,
 
     NewProdComponent,
 
     AdminComponent,
-
+    ClothesComponent,
   ],
   imports: [
     BrowserModule,
