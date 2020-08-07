@@ -32,6 +32,6 @@ export class SearchService {
  
   getItems ()  {
 
-    return this.http.get(`${this.uri}/search`)
+    return this.http.get(`${this.uri}/`)
   }
 }

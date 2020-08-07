@@ -54,8 +54,8 @@ const adSchema = new mongoose.Schema({
 const ad = mongoose.model("ad", adSchema);
 // CRUD
 var add = function (req, res) {
-  console.log("the file :", req.file);
-  console.log("the body : ", req.body);
+  // console.log("the file :", req.file);
+  // console.log("the body : ", req.body);
   ad.create(
     {
       productName: req.file.originalname,
@@ -75,17 +75,24 @@ var add = function (req, res) {
 var select = function (req, res) {
   ad.find(
     {
-      category: req.body.category,
+      category: req.query.category,
     },
     (err, docs) => {
       res.send(docs);
     }
   );
 };
-app.get("/category", (req, res) => {
-  console.log(res)
+app.get("/search", (req, res) => {
   select(req, res);
 });
+app.get("/", (req, res) => {
+  ad.find({},
+    (err, docs) => {
+      res.send(docs);
+    }
+  );
+})
+
 
 var admin = function (req, res) {
   ad.find(
@@ -108,9 +115,6 @@ var deleteOne = function (req, res) {
 // multer
 const storage = multer.diskStorage({
   destination: "./src/assets/img",
-  // (req, file, cb) => {
-  // cb(null, "./src/assets");
-  // },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
   },
@@ -140,14 +144,6 @@ app.get("/admin", (req, res) => {
 app.post("/", (req, res) => {
   add(req, res);
 });
-
-app.get('/search', (req,res) => {
-  ad.find({}, function(err, result) {      
-    if(err) {console.log(err)}
-      res.send(result)
-  })
-})
-
 
 app.delete("/", (req, res) => {
   deleteOne(req, res);

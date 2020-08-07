@@ -5,19 +5,19 @@
       <small>Secondary Text</small>
     </h1>
   
-    <div class="row">
+    <div class="row" *ngFor="let item of items" >
       <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="#"><img class="card-img-top" src="/assets/img/{{item.fileName}}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">Project One</a>
+              {{item.productName}}
             </h4>
-            <p class="card-text">description</p>
+            <p class="card-text">{{item.description}}</p>
           </div>
         </div>
       </div>
-      
+      </div>
     <!-- /.row -->
   
     <!-- Pagination -->
@@ -45,4 +45,4 @@
       </li>
     </ul>
   
-  </div>
+  
