@@ -34,7 +34,6 @@
           background-image: url('https://www.therange.co.uk/_m5/1/6/1592811208_2_7166.jpg');
         "
         routerLink="/gardens"
-      
       >
         <div class="carousel-caption d-none d-md-block">
           <h1 class="display-4">Home and gardens</h1>
@@ -116,26 +115,23 @@
     </div>
   </div>
 </section> -->
-
-<div class="container" *ngFor="let item of products">
-  <h1 class="my-4">
-    Announcement
-    <small>Secondary Text</small>
-  </h1>
-  <div class="container-grid">
+<div class="announcement"><h1 class="my-4">
+  Announcement
+</h1></div>
+<div class="container" >
+  
+  <div class="container-grid" *ngFor="let item of products">
     <div class="column" >
-      <div>
         <div class="card h-100">
           <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
           <div class="card-body">
             <h1 class="card-title">
-              {{ item.productName }}
+              Name: {{ item.productName }}
             </h1>
-            <h4>{{ item.productPrice }}</h4>
-            <p class="card-text">{{ item.description }}</p>
+            <h4>Price: {{ item.productPrice }}</h4>
+            <p class="card-text">Decription: {{ item.description }}</p>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </div>

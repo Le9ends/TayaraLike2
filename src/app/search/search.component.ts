@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
   }
   changeItems() {
     console.log(this.term)
-    this.products = this.items.filter(item => item.productName.includes(this.term))    
+    this.products = this.items.filter(item => item.productName.toLowerCase().includes(this.term.toLowerCase()))    
   }
 
 } 

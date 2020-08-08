@@ -14,12 +14,21 @@
 }
 .column {
   padding: 1em;
- 
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: monospace;
+  text-align: center;
+
+  /* "border-collapse" hack */
+  margin-left: -1px;
+  margin-top: -1px;
 }
-.container-grid {
-  display: grid;
-  grid-template-columns: 30rem 30rem 30rem;
-}
+
 .container {
-  margin-left: 195px;
+  display: grid;
+  grid-template-columns: 20rem 20rem 20rem;
+}
+.card-img-top{
+  width: 100%;
+  height: 300px;
 }

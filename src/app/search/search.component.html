@@ -1,24 +1,24 @@
 <div>
-  <input 
-  class="form-control mr-sm-2"
-  type="search"
-  placeholder="Search"
-  aria-label="Search"
-  [(ngModel)]="term"
-  (ngModelChange)="changeItems()"
-  >
-  <div class="row" *ngFor = "let item of products">
-    <div class="col-lg-4 col-sm-6 mb-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="/assets/img/{{item.fileName}}">
-        <div class="card-body">
-          <h1 class="card-title">
-            {{item.productName}}
-          </h1>
-          <h4>{{item.productPrice}}</h4>
-          <p class="card-text">{{item.description}}</p>
+  <input
+    class="form-control mr-sm-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    [(ngModel)]="term"
+    (ngModelChange)="changeItems()"
+  />
+  <div class="container">
+    <div class="container-grid" *ngFor="let item of products">
+      <div class="column">
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
+          <div class="card-body">
+            <h1 class="card-title">Name: {{ item.productName }}</h1>
+            <h4>Price: {{ item.productPrice }}</h4>
+            <p class="card-text">Decription: {{ item.description }}</p>
+          </div>
         </div>
-      </div> 
+      </div>
     </div>
-  </div> 
+  </div>
 </div>
