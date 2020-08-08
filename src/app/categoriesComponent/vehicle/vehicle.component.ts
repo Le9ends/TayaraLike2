@@ -1,3 +1,4 @@
+import { VehicleService } from './../../vehicle.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle.component.css']
 })
 export class VehicleComponent implements OnInit {
-
-  constructor() { }
+  items : Array<{
+    productName: String;
+    productPrice: Number;
+    description: String;
+    category: String;
+    fileName: string;
+    }>  
+  constructor(private vehicle : VehicleService) { }
 
   ngOnInit(): void {
+    this.getItemsByCategory()
+  }
+  
+  getItemsByCategory () {
+    this.vehicle.getItemByCategory().subscribe((result : any) => {
+      this.items = result
+      }),( (err) => {
+        console.log(err)
+      })
   }
 
 }

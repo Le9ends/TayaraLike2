@@ -16,13 +16,17 @@ app.use(cors());
 mongoose
   .connect("mongodb://localhost:27017/tayaraLike", {
     useNewUrlParser: true,
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+    useUnifiedTopology: true 
+    })
+    .then(() => console.log("MongoDB Connected"))
+    .catch (err => console.log(err))
+
+
 
 var Users = require("./routes/Users");
 //Users
 app.use("/users", Users);
+
 // model of the ADS
 const adSchema = new mongoose.Schema({
   productName: {
@@ -50,8 +54,8 @@ const adSchema = new mongoose.Schema({
 const ad = mongoose.model("ad", adSchema);
 // CRUD
 var add = function (req, res) {
-  console.log("the file :", req.file);
-  console.log("the body : ", req.body);
+  // console.log("the file :", req.file);
+  // console.log("the body : ", req.body);
   ad.create(
     {
       productName: req.file.originalname,
@@ -78,6 +82,17 @@ var select = function (req, res) {
     }
   );
 };
+app.get("/search", (req, res) => {
+  select(req, res);
+});
+app.get("/", (req, res) => {
+  ad.find({},
+    (err, docs) => {
+      res.send(docs);
+    }
+  );
+})
+
 
 var admin = function (req, res) {
   ad.find(
@@ -100,9 +115,6 @@ var deleteOne = function (req, res) {
 // multer
 const storage = multer.diskStorage({
   destination: "./src/assets/img",
-  // (req, file, cb) => {
-  // cb(null, "./src/assets");
-  // },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
   },
@@ -129,10 +141,10 @@ app.post("/upload", upload.single("imageFile"), (req, res, next) => {
 app.get("/admin", (req, res) => {
   admin(req, res);
 });
-
-app.get("/search", (req, res) => {
-  select(req, res);
+app.post("/", (req, res) => {
+  add(req, res);
 });
+
 app.delete("/", (req, res) => {
   deleteOne(req, res);
 });

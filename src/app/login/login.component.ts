@@ -15,7 +15,7 @@ export class LoginComponent {
     email: '',
     phone:'',
     password: '',
-    cpassword: '',
+    cpassword: ''
   };
   constructor(private auth: AuthenticationService, private router: Router) {}
   login() {
@@ -25,13 +25,12 @@ export class LoginComponent {
           alert('Wrong Email or Password');
           this.credentials.password = '';
         } else {
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/');
         }
       },
       (err) => {
         console.error(err);
       }
-      // hi
     );
   }
 }

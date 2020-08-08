@@ -1,6 +1,24 @@
 <div>
-    <input type="text" [(ngModel)]="term" />
-    <div *ngFor = "let item of items | filter:term">{{item.name}}</div>
-    <div *ngIf="(items | filter:term).length < 1">Not Found</div>
-    
+  <input
+    class="form-control mr-sm-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    [(ngModel)]="term"
+    (ngModelChange)="changeItems()"
+  />
+  <div class="container">
+    <div class="container-grid" *ngFor="let item of products">
+      <div class="column">
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
+          <div class="card-body">
+            <h1 class="card-title">Name: {{ item.productName }}</h1>
+            <h4>Price: {{ item.productPrice }}</h4>
+            <p class="card-text">Decription: {{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
