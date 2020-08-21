@@ -43,7 +43,7 @@
       <div
         class="carousel-item"
         style="
-          background-image: url('https://www.therange.co.uk/_m5/1/6/1592811208_2_7166.jpg');
+          background-image: url('https://www.itworkz.co.za/wp-content/uploads/2014/08/hardware-slide2-1.jpg');
         "
         routerLink="/multimedia"
       >
@@ -94,44 +94,22 @@
     </a>
   </div>
 </header>
-
-<!-- Page Content -->
-<!-- <section class="py-5">
-  <div class="container">
-    <h1 class="display-4">Announcement</h1>
-    <div class="row" *ngFor="let item of products">
-      <div class="col-lg-4 col-sm-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
-          <div class="card-body">
-            <h1 class="card-title">
-              {{ item.productName }}
-            </h1>
-            <h4>{{ item.productPrice }}</h4>
-            <p class="card-text">{{ item.description }}</p>
-          </div>
+<div class="announcement">
+  <h1 class="text-center">
+    Announcement
+  </h1>
+</div>
+<div class="container">
+  <div class="container-grid" *ngFor="let item of products">
+    <div class="column">
+      <div class="card h-100">
+        <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
+        <div class="card-body">
+          <h1 class="card-title">Name: {{ item.productName }}</h1>
+          <h4>Price: {{ item.productPrice }}</h4>
+          <p class="card-text">Decription: {{ item.description }}</p>
         </div>
       </div>
-    </div>
-  </div>
-</section> -->
-<div class="announcement"><h1 class="my-4">
-  Announcement
-</h1></div>
-<div class="container" >
-  
-  <div class="container-grid" *ngFor="let item of products">
-    <div class="column" >
-        <div class="card h-100">
-          <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
-          <div class="card-body">
-            <h1 class="card-title">
-              Name: {{ item.productName }}
-            </h1>
-            <h4>Price: {{ item.productPrice }}</h4>
-            <p class="card-text">Decription: {{ item.description }}</p>
-          </div>
-        </div>
     </div>
   </div>
 </div>
