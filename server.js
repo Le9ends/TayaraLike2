@@ -16,14 +16,13 @@ app.use(cors());
 mongoose
   .connect("mongodb://localhost:27017/tayaraLike", {
     useNewUrlParser: true,
-    useUnifiedTopology: true 
-    })
-    .then(() => console.log("MongoDB Connected"))
-    .catch (err => console.log(err))
-
-
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
 
 var Users = require("./routes/Users");
+const { update } = require("./models/User");
 //Users
 app.use("/users", Users);
 
@@ -76,6 +75,7 @@ var select = function (req, res) {
   ad.find(
     {
       category: req.query.category,
+      show: true,
     },
     (err, docs) => {
       res.send(docs);
@@ -86,13 +86,15 @@ app.get("/search", (req, res) => {
   select(req, res);
 });
 app.get("/", (req, res) => {
-  ad.find({},
+  ad.find(
+    {
+      show: true,
+    },
     (err, docs) => {
       res.send(docs);
     }
   );
-})
-
+});
 
 var admin = function (req, res) {
   ad.find(
@@ -105,13 +107,28 @@ var admin = function (req, res) {
   );
 };
 var deleteOne = function (req, res) {
-  ad.deleteOne({ ads: req.body.item }, function (err) {
+  ad.deleteOne({ productName: req.query.name }, function (err) {
     if (err) console.log("error deleting one item from the database ");
     console.log("successfully deleted one item from the database ");
     res.end();
   });
 };
-
+var upgrade = function (req, res) {
+  const filter = { productName: req.query.name };
+  const change = { show: true };
+  ad.findOneAndUpdate(
+    filter,
+    change,
+    {
+      new: true,
+    },
+    function (err) {
+      if (err) console.log("error updating one item from the database ");
+      console.log("successfully updating one item from the database ");
+      res.end();
+    }
+  );
+};
 // multer
 const storage = multer.diskStorage({
   destination: "./src/assets/img",
@@ -141,6 +158,10 @@ app.post("/upload", upload.single("imageFile"), (req, res, next) => {
 app.get("/admin", (req, res) => {
   admin(req, res);
 });
+app.get("/update", (req, res) => {
+  upgrade(req, res);
+});
+
 app.post("/", (req, res) => {
   add(req, res);
 });
