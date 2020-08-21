@@ -3,33 +3,32 @@
     <div class="col-sm-8 mx-auto">
       <h1 class="text-center">Welcome Mr. {{ details?.first_name }}</h1>
     </div>
-    <table class="table col-md-6 mx-auto">
-      <tr>
-        <td>First Name</td>
-        <td>{{ details?.first_name }}</td>
-        <td>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+  </div>
+
+  <div class="container-grids">
+    <div class="container-grid" *ngFor="let item of products">
+      <div class="column">
+        <div class="card h-100">
+          <img class="card-img-top" src="/assets/img/{{ item.fileName }}" />
+          <div class="card-body">
+            <h1 class="card-title">Name: {{ item.productName }}</h1>
+            <h4>Price: {{ item.productPrice }}</h4>
+            <p class="card-text">Decription: {{ item.description }}</p>
+          </div>
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            (click)="handleAccept(item.productName )"
+          >
+            Accept
+          </button>
+          <button
+            class="btn btn-outline-danger my-2 my-sm-0"
+            (click)="handleDelete(item.productName)"
+          >
             Delete
           </button>
-        </td>
-      </tr>
-      <tr>
-        <td>Last Name</td>
-        <td>{{ details?.last_name }}</td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td>{{ details?.email }}</td>
-      </tr>
-    </table>
-    <div style="text-align: center;">
-      <button
-        class="btn btn-outline-success my-2 my-sm-0"
-        type="submit"
-        routerLink="/add-profile"
-      >
-        Add article
-      </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
